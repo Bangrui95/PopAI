@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="POP_AI is a StyleGAN2-ADA experiment for Pop Art portrait generation and AI poster visuals."
+    />
+    <title>POP_AI | StyleGAN2-ADA Pop Art Portrait Generation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Site navigation">
+      <a class="brand" href="#top">POP_AI</a>
+      <nav class="nav-links" aria-label="Main sections">
+        <a href="#overview">Overview</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#training">Training</a>
+        <a href="#results">Results</a>
+        <a href="#reflection">Reflection</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">StyleGAN2-ADA / Pop Art / Portrait Dataset</p>
+          <h1 id="hero-title">POP_AI</h1>
+          <p class="hero-lede">
+            A StyleGAN2-ADA experiment exploring how a custom Pop Art portrait
+            dataset can generate stylized AI poster visuals.
+          </p>
+          <div class="hero-actions" aria-label="Project metadata">
+            <a class="button" href="#results">View Results</a>
+            <a class="button secondary" href="#dataset">See Process</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview" class="section overview-section">
+        <div class="section-kicker">01 / Project Overview</div>
+        <div class="content-grid">
+          <div class="copy-block">
+            <h2>AI image generation as a poster design experiment.</h2>
+            <p>
+              POP_AI began as an exploration of using machine learning to
+              generate visual material for stylized poster design. The project
+              fine-tunes a pre-trained face generation model with a custom Pop
+              Art portrait dataset, testing how dataset choice reshapes the
+              aesthetic behavior of the model.
+            </p>
+            <p>
+              The long-term direction is a personalized visual system: user
+              preferences, tags, or identity-related inputs could eventually
+              become image generation parameters for custom poster visuals.
+            </p>
+            <div class="tag-list">
+              <span class="tag">STYLEGAN2-ADA</span>
+              <span class="tag blue">FFHQ.PKL</span>
+              <span class="tag pink">POP ART DATASET</span>
+              <span class="tag lime">512x512</span>
+            </div>
+          </div>
+          <figure class="image-frame yellow tilt-right">
+            <img
+              src="webimage/333%20final%20image.png"
+              alt="Four generated Pop Art portrait images from the trained model"
+            />
+            <figcaption>
+              Final image generation output from the fine-tuned model.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="dataset" class="section paper-section">
+        <div class="section-kicker">02 / Dataset Preparation</div>
+        <div class="section-heading-row">
+          <h2>From collected images to a focused Pop Art portrait dataset.</h2>
+          <p>
+            The training material was collected, resized, filtered, and
+            reorganized around portrait-based Pop Art imagery. This made the
+            dataset better aligned with the face-based FFHQ model.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <span class="step-number">01</span>
+            <h3>Collect</h3>
+            <p>
+              Images were downloaded from Pinterest boards as a starting visual
+              pool for Pop Art-style training data.
+            </p>
+            <img
+              src="webimage/22%20download.png"
+              alt="Notebook screenshot showing image download workflow"
+              loading="lazy"
+            />
+          </article>
+
+          <article class="process-card">
+            <span class="step-number">02</span>
+            <h3>Resize</h3>
+            <p>
+              Images were cropped and resized into a consistent
+              <span class="mono">512x512</span> format for model training.
+            </p>
+            <img
+              src="webimage/22%20resize%20.png"
+              alt="Notebook screenshot showing image resize workflow"
+              loading="lazy"
+            />
+          </article>
+
+          <article class="process-card">
+            <span class="step-number">03</span>
+            <h3>Filter</h3>
+            <p>
+              Portrait images were manually curated and supported by classifier
+              experiments to improve dataset focus.
+            </p>
+            <img
+              src="IMAGE/33%20hand.jpg"
+              alt="Finder screenshot showing manually sorted Pop Art image dataset"
+              loading="lazy"
+            />
+          </article>
+        </div>
+
+        <div class="wide-image-pair">
+          <figure class="image-frame cyan">
+            <img
+              src="webimage/111%2001.png"
+              alt="Training output snapshot 01 from the Pop Art portrait model"
+              loading="lazy"
+            />
+            <figcaption>Training output snapshot 01.</figcaption>
+          </figure>
+          <figure class="image-frame">
+            <img
+              src="webimage/training-dataset-grid.png"
+              alt="Random training dataset grid made from Pop Art portrait images"
+              loading="lazy"
+            />
+            <figcaption>
+              Randomized Pop Art portrait dataset grid for training preview.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="training" class="section dark-section">
+        <div class="section-kicker">03 / Model Training</div>
+        <div class="content-grid reverse">
+          <div class="copy-block">
+            <h2>Fine-tuning became the practical path.</h2>
+            <p>
+              The project first considered StyleGAN3, then shifted toward
+              StyleGAN2-ADA because it supports fine-tuning from existing
+              pre-trained models. This made the workflow more realistic for a
+              limited dataset and cloud-based training environment.
+            </p>
+            <p>
+              Different model directions were tested, including WikiArt and
+              FFHQ. The final direction used
+              <span class="mono">ffhq.pkl</span> with the Pop Art portrait
+              dataset to preserve face structure while learning a stronger
+              graphic style.
+            </p>
+          </div>
+          <figure class="image-frame pink tilt-left">
+            <img
+              src="webimage/11%20first%20image.jpg"
+              alt="First Pop Art-style image generated from the user's trained model"
+              loading="lazy"
+            />
+            <figcaption>
+              First generated image from an interrupted but usable checkpoint.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="timeline" aria-label="Training process timeline">
+          <article>
+            <span>01</span>
+            <h3>StyleGAN3 Review</h3>
+            <p>Large dataset and hardware limits made full training difficult.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>StyleGAN2-ADA</h3>
+            <p>Fine-tuning offered a stronger route for small custom data.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Model Choice</h3>
+            <p>WikiArt and FFHQ were compared as different starting points.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Pop Portraits</h3>
+            <p>The final training direction aligned FFHQ with Pop Art faces.</p>
+          </article>
+        </div>
+
+        <div class="training-strip">
+          <img
+            src="webimage/111%2001.png"
+            alt="Early training output collage"
+            loading="lazy"
+          />
+          <img
+            src="webimage/111%2005.png"
+            alt="Middle training output collage"
+            loading="lazy"
+          />
+          <img
+            src="IMAGE/111%2006.png"
+            alt="Later training output collage with stronger Pop Art style"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section id="results" class="section results-section">
+        <div class="section-kicker">04 / Generated Results</div>
+        <div class="section-heading-row">
+          <h2>The model starts to speak in color, face, and poster texture.</h2>
+          <p>
+            The final outputs show a clear movement toward Pop Art portraiture:
+            saturated color, graphic facial structure, painterly texture, and
+            strong poster-like crops.
+          </p>
+        </div>
+
+        <div class="gallery" aria-label="Generated image gallery">
+          <figure class="gallery-item result-main">
+            <img
+              src="webimage/main.png"
+              alt="Large Pop Art portrait dataset-style image used as the main generated results visual"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section id="reflection" class="section reflection-section">
+        <div class="section-kicker">05 / Reflection</div>
+        <div class="content-grid">
+          <div class="copy-block">
+            <h2>Early style, unresolved generation.</h2>
+            <p>
+              At this stage, the model has started to show a clear Pop Art
+              styling tendency through stronger color, graphic portrait shapes,
+              and poster-like visual texture. However, it has not yet formed a
+              stable style output ability.
+            </p>
+            <p>
+              Some generated images still contain visible problems, including
+              torn facial details, repeated features, unstable eye and mouth
+              structures, and incomplete integration between the pre-trained
+              face model and the Pop Art dataset.
+            </p>
+            <ul class="insight-list">
+              <li>The model is beginning to learn Pop Art color and texture.</li>
+              <li>Facial details are still unstable and sometimes fragmented.</li>
+              <li>The style has not yet become a consistent generation ability.</li>
+            </ul>
+          </div>
+          <figure class="image-frame yellow">
+            <img
+              src="IMAGE/111.%20wenti.jpg"
+              alt="Training dataset with highlighted visual issues and artifacts"
+              loading="lazy"
+            />
+            <figcaption>
+              Artifact analysis during the Pop Art portrait training process.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="projection-grid">
+          <figure>
+            <img
+              src="webimage/1.png"
+              alt="Generated image showing torn details and unstable facial structure"
+              loading="lazy"
+            />
+            <figcaption>Torn details</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="webimage/2.png"
+              alt="Generated image showing repeated portrait features"
+              loading="lazy"
+            />
+            <figcaption>Repeated features</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="webimage/3.png"
+              alt="Generated Pop Art portrait with incomplete style formation"
+              loading="lazy"
+            />
+            <figcaption>Unstable stylization</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="webimage/4.png"
+              alt="Generated Pop Art portrait showing unresolved output issues"
+              loading="lazy"
+            />
+            <figcaption>Unresolved output</figcaption>
+          </figure>
+        </div>
+
+        <div class="status-panel">
+          <div class="status-heading">
+            <p class="section-kicker">Current Project Status</p>
+            <h2>Experimental progress, not a finished model.</h2>
+          </div>
+          <div class="status-grid">
+            <article>
+              <h3>Training Progress</h3>
+              <p>
+                The current model is still in an early training stage. It has
+                not reached the full training scale suggested for StyleGAN2-ADA,
+                so the output should be understood as an experimental test
+                rather than a completed generation system.
+              </p>
+            </article>
+            <article>
+              <h3>Current State</h3>
+              <p>
+                The model has started to learn Pop Art color, portrait
+                composition, and graphic texture. However, the style is still
+                unstable and has not yet become a consistent visual language.
+              </p>
+            </article>
+            <article>
+              <h3>Reflection</h3>
+              <p>
+                The main issues are limited training time, a relatively small
+                dataset, repeated facial features, fragmented details, and
+                incomplete fusion between the FFHQ face model and the custom Pop
+                Art dataset.
+              </p>
+            </article>
+            <article>
+              <h3>Application Potential</h3>
+              <p>
+                Even at this stage, the workflow shows potential for AI-assisted
+                poster design. With more training and a stronger input pipeline,
+                it could support personalized visual outputs based on user
+                preferences, tags, or identity-related data.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="future" class="section future-section">
+        <div class="future-panel">
+          <p class="section-kicker">06 / Future Development</p>
+          <h2>From image generation to personalized poster visuals.</h2>
+          <p>
+            The next stage is to connect personal input data with visual
+            parameters. Survey answers, preference tags, browsing patterns, or
+            selected moods could become a bridge between individual identity and
+            generated poster aesthetics.
+          </p>
+          <div class="future-flow" aria-label="Future workflow">
+            <span>User Data</span>
+            <span>Style Tags</span>
+            <span>Model Conditioning</span>
+            <span>Poster Output</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>POP_AI / Critical Coding 3 Final Project</p>
+      <p>StyleGAN2-ADA fine-tuning with a custom Pop Art portrait dataset.</p>
+    </footer>
+  </body>
+</html>
